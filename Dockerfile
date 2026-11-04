@@ -12,6 +12,7 @@ COPY src ./src
 
 ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 
+RUN cargo update -p time && cargo build --release
 RUN cargo build --release
 
 
