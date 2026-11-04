@@ -1,4 +1,4 @@
-FROM rust:slim-buster AS builder
+FROM rust:slim-bookworm AS builder
 
 RUN apt-get update && apt-get install --no-install-recommends -y perl make && \
     apt-get clean && \
@@ -15,7 +15,7 @@ ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 RUN cargo build --release
 
 
-FROM debian:stable-slim AS runtime
+FROM debian:bookworm-slim AS runtime
 
 RUN apt-get update && apt-get install --no-install-recommends -y unzip curl ca-certificates && \
     apt-get clean && \
