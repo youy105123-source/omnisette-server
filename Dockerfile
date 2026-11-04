@@ -12,7 +12,7 @@ COPY src ./src
 
 ENV CARGO_REGISTRIES_CRATES_IO_PROTOCOL=sparse
 
-RUN cargo update -p time:0.3.20 && cargo build --release
+RUN cargo update -p time --precise 0.3.36 && cargo build --release
 
 
 FROM debian:bookworm-slim AS runtime
